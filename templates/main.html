@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<style>
+form {
+    margin: auto;
+    width: 45%;
+}
+
+.result {
+    margin: auto;
+    width: 45%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Red Wine Quality</title>
+</head>
+
+<script>
+	function getRandomValues() {
+		document.getElementById('a1').value = (Math.random() * (15.9)).toFixed(1);
+		document.getElementById('a2').value = (Math.random() * (1.58)).toFixed(2);
+		document.getElementById('a3').value = (Math.random() * (1)).toFixed(2);
+		document.getElementById('a4').value = (Math.random() * (15.5)).toFixed(1);
+		document.getElementById('a5').value = (Math.random() * (0.611)).toFixed(3);
+		document.getElementById('a6').value = (Math.random() * (72)).toFixed(1);
+		document.getElementById('a7').value = (Math.random() * (289)).toFixed(1);
+		document.getElementById('a8').value = (Math.random() * (1.003)).toFixed(4);
+		document.getElementById('a9').value = (Math.random() * (4.01)).toFixed(2);
+		document.getElementById('a10').value = (Math.random() * (2)).toFixed(1);
+		document.getElementById('a11').value = (Math.random() * (14.9)).toFixed(1);
+	}
+</script>
+<body>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:(Good wine is 10.5,0.24,0.47,2.1,0.066,6.0,24.0,0.997,3.15,0.90,11.0</legend>
+        Fixed Acidity:
+        <input id="a1" name="a1" type="number" step="0.1" required>
+		<br>
+		Volatile Acidity:
+        <input id="a2" name="a2" type="number" step="0.01" required>
+		<br>
+		Citric Acid:
+        <input id="a3" name="a3" type="number" step="0.01" required>
+		<br>
+		Residual Sugar:
+        <input id="a4" name="a4" type="number" step="0.1" required>
+		<br>
+		Chlorides:
+        <input id="a5" name="a5" type="number" step="0.001" required>
+		<br>
+		Free Sulfur Dioxide:
+        <input id="a6" name="a6" type="number" step="0.1" required>
+		<br>
+		Total Sulfur Dioxide:
+        <input id="a7" name="a7" type="number" step="0.1" required>
+		<br>
+		Density:
+        <input id="a8" name="a8" type="number" step="0.0001" required>
+		<br>
+		pH:
+        <input id="a9" name="a9" type="number" step="0.01" required>
+		<br>
+		Sulphates:
+        <input id="a10" name="a10" type="number" step="0.10" required>
+		<br>
+		Alcohol:
+        <input id="a11" name="a11" type="number" step="0.10" required>
+		<br>
+		<button type="button" onclick="getRandomValues()">Enter Random Date</button>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+</body>
+
+<div class="result" align="center">
+    {% if result %}
+    	<br> <p style="font-size:50px"Quality Red WINE:</p>
+   		<p style="font-size:50px">{{ result }}</p>
+
+    {% endif %}
+</div>
+</html>
